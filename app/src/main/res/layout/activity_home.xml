@@ -2,11 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/VerticalCenterMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -15,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/Menu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:baselineAligned="false"
@@ -22,32 +25,34 @@
             app:flow_horizontalAlign="end">
 
             <LinearLayout
+                android:id="@+id/Hero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#F44336"
                 android:orientation="horizontal">
 
                 <Space
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
                 <LinearLayout
+                    android:id="@+id/HeroTextGroup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/WelcomeText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:text="Bienvenue chez" />
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/NameText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:text="Mon Super Resto" />
                 </LinearLayout>
 
                 <FrameLayout
@@ -55,15 +60,17 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/imageView4"
+                        android:id="@+id/HeroImg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="Logo of Restaurant"
                         tools:src="@tools:sample/avatars" />
                 </FrameLayout>
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ButtonGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00BCD4"
