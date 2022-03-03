@@ -10,9 +10,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val button = findViewById<Button>(R.id.button)
-        val button2 = findViewById<Button>(R.id.button2)
-        val button3 = findViewById<Button>(R.id.button3)
+        val button = findViewById<Button>(R.id.btn1)
+        val button2 = findViewById<Button>(R.id.btn2)
+        val button3 = findViewById<Button>(R.id.btn3)
 
         button.setOnClickListener {
             displayToast(button.text)

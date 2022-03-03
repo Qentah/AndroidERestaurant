@@ -7,90 +7,93 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <LinearLayout
-        android:id="@+id/Hero"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/WelcomeText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="@dimen/default_padding"
+        android:layout_marginEnd="8dp"
+        android:text="@string/welcometext"
+        app:layout_constraintBottom_toTopOf="@+id/NameText"
+        app:layout_constraintEnd_toStartOf="@+id/Logo" />
+
+    <TextView
+        android:id="@+id/NameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="@string/restoname"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/Logo"
+        app:layout_constraintEnd_toStartOf="@+id/Logo" />
+
+    <ImageView
+        android:id="@+id/Logo"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:contentDescription="@string/attrlogo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:id="@+id/HeroTextGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/default_padding">
-
-            <TextView
-                android:id="@+id/WelcomeText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/welcometext"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/NameText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/restoname"
-                android:textSize="24sp"
-                android:textStyle="bold|italic" />
-        </LinearLayout>
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/HeroImg"
-                android:layout_width="128dp"
-                android:layout_height="128dp"
-                android:contentDescription="@string/attrlogo"
-                tools:ignore="ImageContrastCheck,ImageContrastCheck"
-                tools:src="@drawable/logo"
-                app:srcCompat="@drawable/logo"/>
-        </FrameLayout>
-
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo"
+        tools:ignore="ImageContrastCheck,ImageContrastCheck"
+        tools:src="@drawable/logo" />
 
     <LinearLayout
-        android:id="@+id/ButtonGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@drawable/empty_tall_divider"
+        android:layout_width="256dp"
+        android:layout_height="192dp"
+        android:gravity="center"
         android:orientation="vertical"
-        android:padding="64dp"
-        android:showDividers="middle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="@string/bt1text" />
+            android:text="@string/bt1text"
+            app:cornerRadius="32dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="@string/bt2text" />
+            android:text="@string/bt2text"
+            app:cornerRadius="32dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btn3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="@string/bt3text" />
+            android:text="@string/bt3text"
+            app:cornerRadius="32dp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/FooterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:text="application fictive à des fins pédagogiques , libre de droit"
+        android:textColor="#59000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

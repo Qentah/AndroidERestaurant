@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">AndroidERestaurant</string>
     <string name="author">Quentin HENRY</string>
-    <string name="bt1text">Entrée</string>
+    <string name="bt1text">Entrées</string>
     <string name="bt2text">Plats</string>
-    <string name="bt3text">Dessert</string>
+    <string name="bt3text">Desserts</string>
     <string name="welcometext">Bienvenue chez</string>
     <string name="restoname">Mon Super Resto</string>
     <string name="attrlogo">Logo of Restaurant</string>
