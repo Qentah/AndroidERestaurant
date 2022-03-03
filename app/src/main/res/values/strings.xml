@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidERestaurant</string>
+    <string name="author">Quentin HENRY</string>
 </resources>
