@@ -1,9 +1,12 @@
 package fr.isen.henry.androiderestaurant
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
+import java.io.File
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +29,15 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
+    override fun onStop() {
+        super.onStop()
+        Log.d("HomeActivity","Home Destroyed")
+    }
+
     private fun displayToast(text: CharSequence){
         Toast.makeText(this@HomeActivity, text, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, CatSelectDetail::class.java)
+        intent.putExtra("category",text)
+        startActivity(intent)
     }
 }
