@@ -17,6 +17,8 @@ class CatAdapter(private val datas : List<Datum>,private val listener: (Datum) -
 
     class ViewHolder(private val binding:RowCatBinding ,private val listener: (Datum) -> Unit) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data : Datum){
+            binding.iCat.clipToOutline = true
+
             binding.btCat.text = data.name_fr
             val firstimg  = data.items[0].images.firstOrNull{ s -> s!="" }
             Picasso.get().load(firstimg).placeholder(R.drawable.logo).into(binding.iCat)

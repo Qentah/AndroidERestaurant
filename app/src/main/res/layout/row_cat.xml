@@ -21,6 +21,8 @@
         android:id="@+id/iCat"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginBottom="?attr/listPreferredItemPaddingEnd"
+        android:background="@drawable/rounded"
         android:contentDescription="@string/row_cat_content_desc"
         android:cropToPadding="true"
         android:padding="8dp"
