@@ -7,17 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ItemDetailActivity">
 
-    <ImageView
-        android:id="@+id/iDetail"
-        android:layout_width="0dp"
-        android:layout_height="250dp"
-        android:contentDescription="@string/todo"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
     <TextView
         android:id="@+id/titleDetail"
         android:layout_width="0dp"
@@ -27,7 +16,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iDetail" />
+        app:layout_constraintTop_toBottomOf="@+id/vpDetail" />
 
     <TextView
         android:id="@+id/ingListDetail"
@@ -83,5 +72,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btLess"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpDetail"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
