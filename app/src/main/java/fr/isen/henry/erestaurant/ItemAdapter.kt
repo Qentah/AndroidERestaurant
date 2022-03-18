@@ -1,11 +1,11 @@
 package fr.isen.henry.erestaurant
 
 import Item
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import fr.isen.henry.erestaurant.databinding.RowCatBinding
 import fr.isen.henry.erestaurant.databinding.RowItemBinding
 
 class ItemAdapter(private val datas : List<Item>, private val listener: (Item) -> Unit):RecyclerView.Adapter<ItemAdapter.ViewHolder>(){
@@ -17,9 +17,11 @@ class ItemAdapter(private val datas : List<Item>, private val listener: (Item) -
     override fun getItemCount(): Int = datas.size
 
     class ViewHolder(private val binding:RowItemBinding ,private val listener: (Item) -> Unit) : RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
         fun bind(item : Item){
             binding.iItem.clipToOutline = true
 
+            binding.priceItem.text = item.prices[0].price+"€"
             binding.btItem.text = item.name_fr
             val firstimg  = item.images.firstOrNull{ s -> s!="" }
             Picasso.get().load(firstimg).placeholder(R.drawable.logo).into(binding.iItem)

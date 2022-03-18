@@ -8,7 +8,7 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.henry.erestaurant.databinding.ActivityListBinding
 
-class ListActivity : AppCompatActivity() {
+class ListActivity : MyAppActivity() {
     private lateinit var binding: ActivityListBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

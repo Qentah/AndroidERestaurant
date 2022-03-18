@@ -9,11 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.squareup.picasso.Picasso
 import fr.isen.henry.erestaurant.databinding.ActivityItemDetailBinding
 import kotlin.math.max
 
-class ItemDetailActivity : AppCompatActivity() {
+class ItemDetailActivity : MyAppActivity() {
     private lateinit var binding: ActivityItemDetailBinding
     private lateinit var item: Item
     private var qty : Int = 0
@@ -21,6 +20,7 @@ class ItemDetailActivity : AppCompatActivity() {
             field = max(value,0)
         }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityItemDetailBinding.inflate(layoutInflater)
@@ -29,7 +29,8 @@ class ItemDetailActivity : AppCompatActivity() {
         item = intent.extras!!.getSerializable("data") as Item
 
         binding.titleDetail.text = item.name_fr
-        binding.ingListDetail.text = item.ingredients.joinToString(",") { it.name_fr }
+        binding.ingListDetail.text = "Ingrédients : "+item.ingredients.joinToString(", ") { it.name_fr }
+        binding.pricesDetail.text = item.prices.joinToString ("\n"){ "${it.size} : ${it.price}€" }
 
         updateQty()
         setupViewPager()

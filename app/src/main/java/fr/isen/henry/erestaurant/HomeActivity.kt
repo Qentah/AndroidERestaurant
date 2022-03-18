@@ -4,7 +4,12 @@ import ResponseData
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request.Method.POST
 import com.android.volley.toolbox.JsonObjectRequest
@@ -13,8 +18,9 @@ import com.google.gson.Gson
 import fr.isen.henry.erestaurant.databinding.ActivityHomeBinding
 import org.json.JSONObject
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : MyAppActivity() {
     private lateinit var binding: ActivityHomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -53,3 +59,4 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 }
+

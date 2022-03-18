@@ -10,6 +10,7 @@
         android:id="@+id/btCat"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_margin="8dp"
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/alt_cat_img"
         app:layout_constraintBottom_toBottomOf="@+id/iCat"

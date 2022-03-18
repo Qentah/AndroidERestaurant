@@ -81,4 +81,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/pricesDetail"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="8sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btLess"
+        app:layout_constraintEnd_toEndOf="@+id/btMore"
+        app:layout_constraintStart_toStartOf="@+id/btLess"
+        app:layout_constraintTop_toBottomOf="@+id/ingListDetail" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
