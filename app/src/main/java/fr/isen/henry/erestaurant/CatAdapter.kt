@@ -17,13 +17,12 @@ class CatAdapter(private val datas : List<Datum>,private val listener: (Datum) -
 
     class ViewHolder(private val binding:RowCatBinding ,private val listener: (Datum) -> Unit) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data : Datum){
-            binding.bt.text = data.name_fr
+            binding.btCat.text = data.name_fr
             val firstimg  = data.items[0].images.firstOrNull{ s -> s!="" }
-            Picasso.get().load(firstimg).placeholder(R.drawable.logo).into(binding.iv)
+            Picasso.get().load(firstimg).placeholder(R.drawable.logo).into(binding.iCat)
 
-            binding.iv.setOnClickListener { listener(data) }
-            binding.bt.setOnClickListener { listener(data) }
-
+            binding.iCat.setOnClickListener { listener(data) }
+            binding.btCat.setOnClickListener { listener(data) }
         }
     }
 

@@ -4,14 +4,12 @@ import ResponseData
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request.Method.POST
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import fr.isen.henry.erestaurant.databinding.ActivityHomeBinding
 import org.json.JSONObject
 

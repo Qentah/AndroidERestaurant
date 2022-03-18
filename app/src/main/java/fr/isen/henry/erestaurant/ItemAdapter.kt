@@ -18,9 +18,12 @@ class ItemAdapter(private val datas : List<Item>, private val listener: (Item) -
 
     class ViewHolder(private val binding:RowItemBinding ,private val listener: (Item) -> Unit) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item : Item){
-            binding.bt2.text = item.name_fr
+            binding.btItem.text = item.name_fr
             val firstimg  = item.images.firstOrNull{ s -> s!="" }
-            Picasso.get().load(firstimg).placeholder(R.drawable.logo).into(binding.iv2)
+            Picasso.get().load(firstimg).placeholder(R.drawable.logo).into(binding.iItem)
+
+            binding.iItem.setOnClickListener { listener(item) }
+            binding.btItem.setOnClickListener { listener(item) }
         }
     }
 
