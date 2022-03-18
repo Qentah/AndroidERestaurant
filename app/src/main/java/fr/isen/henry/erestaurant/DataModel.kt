@@ -23,6 +23,13 @@ data class Item (
 ):Serializable
 
 
+data class PanierItem (
+    var name_fr: String,
+    var quantity: Int,
+    val unit_price: Float
+):Serializable
+
+
 data class Ingredient (
     val id: String,
     val id_shop: String,

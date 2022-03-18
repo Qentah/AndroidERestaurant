@@ -1,10 +1,10 @@
 package fr.isen.henry.erestaurant
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.LayerDrawable
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -15,7 +15,7 @@ abstract class MyAppActivity : AppCompatActivity() {
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean{
         if(this::defaultMenu.isInitialized) {
-            setBadgeCount(this, CountSingleton.value)
+            setBadgeCount(this, PanierSingleton.value)
         }
         return true
     }
@@ -30,14 +30,15 @@ abstract class MyAppActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         super.onOptionsItemSelected(item)
         if(item.itemId == R.id.action_cart)
-            Toast.makeText(this,"Action", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, PanierActivity::class.java))
+            //Toast.makeText(this,"Action", Toast.LENGTH_LONG).show()
         return true
     }
 
     override fun onResume(){
         super.onResume()
         if(this::defaultMenu.isInitialized){
-        setBadgeCount(this,CountSingleton.value)
+        setBadgeCount(this,PanierSingleton.value)
         }
     }
 
@@ -47,8 +48,8 @@ abstract class MyAppActivity : AppCompatActivity() {
 
         val badge = CountDrawable(context)
 
-        CountSingleton.value = value
-        badge.setCount(CountSingleton.value.toString())
+        PanierSingleton.value = value
+        badge.setCount(PanierSingleton.value.toString())
         icon.mutate()
         icon.setDrawableByLayerId(R.id.ic_group_count, badge)
 

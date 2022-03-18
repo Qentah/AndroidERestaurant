@@ -1,15 +1,18 @@
 package fr.isen.henry.erestaurant
 
 import Item
+import PanierItem
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
 import fr.isen.henry.erestaurant.databinding.ActivityItemDetailBinding
+import org.json.JSONObject
 import kotlin.math.max
 
 class ItemDetailActivity : MyAppActivity() {
@@ -45,7 +48,10 @@ class ItemDetailActivity : MyAppActivity() {
             updateQty()
         }
         binding.btTotal.setOnClickListener {
-            setBadgeCount(this,CountSingleton.value + qty)
+            setBadgeCount(this,PanierSingleton.value + qty)
+            val itemPanier  = PanierItem(item.name_fr,qty,item.prices[0].price.toFloat())
+            PanierSingleton.add(itemPanier)
+            Snackbar.make(binding.root,"$qty ${item.name_fr} bien ajouté au panier", Snackbar.LENGTH_SHORT ).show()
         }
     }
 
