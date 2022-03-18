@@ -32,6 +32,7 @@ class HomeActivity : MyAppActivity() {
         dataRequest()
     }
 
+
     private fun dataRequest(){
         val requestBody = JSONObject("{\"id_shop\":1}")
         val req = JsonObjectRequest(

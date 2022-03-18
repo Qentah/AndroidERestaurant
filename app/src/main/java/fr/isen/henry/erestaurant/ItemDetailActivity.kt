@@ -32,7 +32,8 @@ class ItemDetailActivity : MyAppActivity() {
         binding.ingListDetail.text = "Ingrédients : "+item.ingredients.joinToString(", ") { it.name_fr }
         binding.pricesDetail.text = item.prices.joinToString ("\n"){ "${it.size} : ${it.price}€" }
 
-        updateQty()
+        binding.textQty.text = qty.toString()
+        binding.btTotal.text = "Selectionnez une quantité !"
         setupViewPager()
 
         binding.btLess.setOnClickListener {
@@ -42,6 +43,9 @@ class ItemDetailActivity : MyAppActivity() {
         binding.btMore.setOnClickListener {
             qty++
             updateQty()
+        }
+        binding.btTotal.setOnClickListener {
+            setBadgeCount(this,CountSingleton.value + qty)
         }
     }
 
