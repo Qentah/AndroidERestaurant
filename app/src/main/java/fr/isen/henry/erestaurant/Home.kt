@@ -8,6 +8,7 @@ import com.android.volley.Request.Method.POST
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import fr.isen.henry.erestaurant.databinding.ActivityHomeBinding
 import org.json.JSONObject
 
@@ -37,8 +38,10 @@ class Home : AppCompatActivity() {
 
     private  fun dataParse(jsonResponse: JSONObject) {
         val response = Gson().fromJson(jsonResponse.toString(),ResponseData::class.java)
-        Log.d("HDP00", "datas => ${jsonResponse.toString(1)}")
-        //Log.d("HDP01", "datas => ${JSONObject(response).toString(1)}")
-
+        Log.d("HDP00", "response => ${jsonResponse.toString(1)}")
+        Log.d("HDP01", "response => $response")
+        for (data in response.data){
+            Log.d("HDP02", "data => ${data}")
+        }
     }
 }
