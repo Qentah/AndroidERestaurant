@@ -48,9 +48,9 @@ class ItemDetailActivity : MyAppActivity() {
             updateQty()
         }
         binding.btTotal.setOnClickListener {
-            setBadgeCount(this,PanierSingleton.value + qty)
             val itemPanier  = PanierItem(item.name_fr,qty,item.prices[0].price.toFloat())
             PanierSingleton.add(itemPanier)
+            setBadgeCount(this)
             Snackbar.make(binding.root,"$qty ${item.name_fr} bien ajouté au panier", Snackbar.LENGTH_SHORT ).show()
         }
     }

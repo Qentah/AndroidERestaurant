@@ -6,6 +6,7 @@ import com.google.gson.JsonArray
 
 object PanierSingleton{
     var value = 0
+        get() = content.sumOf { it.quantity }
     private var content :MutableList<PanierItem> = mutableListOf()
     fun add(item : PanierItem){
         if(item.quantity == 0) return

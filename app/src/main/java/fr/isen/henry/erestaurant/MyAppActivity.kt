@@ -42,7 +42,12 @@ abstract class MyAppActivity : AppCompatActivity() {
         }
     }
 
-    protected fun setBadgeCount(context:Context, value :Int) {
+    protected fun setBadgeCount(context:Context){
+        setBadgeCount(context, PanierSingleton.value)
+    }
+
+    @Deprecated("Délegation de la gestion du stock au PanierSingleton")
+    fun setBadgeCount(context:Context, value :Int) {
         val menuItem: MenuItem = defaultMenu.findItem(R.id.action_cart)
         val icon = menuItem.icon as LayerDrawable
 
