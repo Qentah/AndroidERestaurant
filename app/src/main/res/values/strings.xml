@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ERestaurant</string>
+    <string name="alt_cat_img">Catégorie Image</string>
+    <string name="row_cat_content_desc">TODO</string>
 </resources>

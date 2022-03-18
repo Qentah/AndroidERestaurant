@@ -1,9 +1,12 @@
 package fr.isen.henry.erestaurant
 
 import ResponseData
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request.Method.POST
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -12,11 +15,15 @@ import com.google.gson.GsonBuilder
 import fr.isen.henry.erestaurant.databinding.ActivityHomeBinding
 import org.json.JSONObject
 
-class Home : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.catRecycler.layoutManager =LinearLayoutManager(this)
+        binding.catRecycler.adapter = CatAdapter(arrayListOf()){}
 
         dataRequest()
     }
@@ -40,8 +47,11 @@ class Home : AppCompatActivity() {
         val response = Gson().fromJson(jsonResponse.toString(),ResponseData::class.java)
         Log.d("HDP00", "response => ${jsonResponse.toString(1)}")
         Log.d("HDP01", "response => $response")
-        for (data in response.data){
-            Log.d("HDP02", "data => ${data}")
+        binding.catRecycler.adapter =CatAdapter(response.data){
+            val intent = Intent(this, ListActivity::class.java)
+            intent.putExtra("data", it)
+            Log.d("HDPCA00","name => ${it.name_fr}")
+            startActivity(intent)
         }
     }
 }
