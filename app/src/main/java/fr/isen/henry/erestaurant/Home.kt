@@ -1,11 +1,13 @@
 package fr.isen.henry.erestaurant
 
+import ResponseData
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request.Method.POST
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
 import fr.isen.henry.erestaurant.databinding.ActivityHomeBinding
 import org.json.JSONObject
 
@@ -23,12 +25,20 @@ class Home : AppCompatActivity() {
         val req = JsonObjectRequest(
             POST,"http://test.api.catering.bluecodegames.com/menu",requestBody,
             { response ->
-                Log.d("API00", "resultat => $response")
+                Log.d("HDR00", "resultat => $response")
+                dataParse(response)
             },
             { error ->
-                Log.d("API01", "error => $error")
+                Log.d("HDR01", "error => $error")
             }
             )
         Volley.newRequestQueue(this).add(req)
+    }
+
+    private  fun dataParse(jsonResponse: JSONObject) {
+        val response = Gson().fromJson(jsonResponse.toString(),ResponseData::class.java)
+        Log.d("HDP00", "datas => ${jsonResponse.toString(1)}")
+        //Log.d("HDP01", "datas => ${JSONObject(response).toString(1)}")
+
     }
 }
