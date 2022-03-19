@@ -10,9 +10,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.snackbar.Snackbar
-import com.google.gson.Gson
 import fr.isen.henry.erestaurant.databinding.ActivityItemDetailBinding
-import org.json.JSONObject
 import kotlin.math.max
 
 class ItemDetailActivity : MyAppActivity() {
@@ -48,8 +46,8 @@ class ItemDetailActivity : MyAppActivity() {
             updateQty()
         }
         binding.btTotal.setOnClickListener {
-            val itemPanier  = PanierItem(item.name_fr,qty,item.prices[0].price.toFloat())
-            PanierSingleton.add(itemPanier)
+            val itemPanier  = PanierItem(item.name_fr,qty,item.prices[0].price.toFloat(),item.images[0])
+            PanierSingleton.update(itemPanier)
             setBadgeCount(this)
             Snackbar.make(binding.root,"$qty ${item.name_fr} bien ajouté au panier", Snackbar.LENGTH_SHORT ).show()
         }
